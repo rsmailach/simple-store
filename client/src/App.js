@@ -73,13 +73,13 @@ render() {
             My Sample Store
           </p>
         </header>
-        <div id="content">
-          <aside id="add-item-sidebar">
+        <div id="content" class="row">
+          <aside id="add-item-sidebar" class="column">
             <form onSubmit={this.addItem}>
               <p>
-                <strong>Add new inventory:</strong>
+                <strong>Add New Inventory</strong>
               </p>
-              <label>Name
+              <label>Name</label>
               <input
                 class="add-item"
                 type="text"
@@ -87,8 +87,7 @@ render() {
                 value={this.state.name}
                 onChange={e => this.setState({ name: e.target.value })}
               />
-              </label>
-              <label>Price
+              <label>Price</label>
               <input
                 class="add-item"          
                 type="text"
@@ -96,20 +95,19 @@ render() {
                 value={this.state.price}
                 onChange={e => this.setState({ price: e.target.value })}
               />
-              </label>
               <button 
-                type="submit"
-                class="add-item">
+                type="submit">
                 Add</button>
             </form>
             <p id="add-post-response" class="user-message"></p>
           </aside> 
-          <div id="items"> 
+          <div id="items" class="column"> 
             <p>
-
+              <strong>Current Inventory</strong>
             </p>          
-            <p id="delete-post-response" class="user-message"></p>
+
             <div id="items-list"></div>
+            <p id="delete-post-response" class="user-message"></p>
           </div>
         </div>
       </div>
