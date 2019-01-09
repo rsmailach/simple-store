@@ -42,13 +42,35 @@ app.post('/api/add-item', (req, res) => {
 
 		console.log("Result: " + result);
 		res.send(
-			`I successfully inserted NAME: ${req.body.name} PRICE: ${req.body.price}`,
+			`Success! I successfully inserted NAME: ${req.body.name} PRICE: ${req.body.price}`,
 		);
 	});
 	} catch (e) {
+
+	}
+
+});
+
+
+app.post('/api/delete-item', (req, res) => {
+ try {
+	sql = `UPDATE simple_store.items SET Mark_Deleted = 1 WHERE Item_ID = ${req.body.id};`;
+	con.query(sql, function (err, result) {
+		
+		if (err) {    
 			res.send(
-				`I have failed to insert NAME: ${req.body.name} PRICE: ${req.body.price} because ${err}`,
+				`I have failed to delete ID: ${req.body.id} `
 			); 
+			//throw err
+		};
+
+		console.log("Result: " + result);
+		res.send(
+			`Success! I successfully deleted ID: ${req.body.id} `
+		);
+	});
+	} catch (e) {
+ 
 	}
 
 });
