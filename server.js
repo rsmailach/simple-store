@@ -7,12 +7,23 @@ var sql = '';
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
-	password: "egg@PLANT32"
+	password: "password"
 });
 
 con.connect(function(err) {
 	if (err) throw err;
 	console.log("Connected!");
+});
+
+sql = 'CREATE SCHEMA IF NOT EXISTS simple_store;';
+con.query(sql, function (err, result, fields) {
+  if (err) {console.log(err)} else {console.log(result)};
+});
+
+
+sql = 'CREATE TABLE IF NOT EXISTS simple_store.items (`Item_ID` int(11) NOT NULL AUTO_INCREMENT,`Name` varchar(45) NOT NULL,`Price` decimal(13,2) NOT NULL DEFAULT "0.00",`Mark_Deleted` tinyint(1) NOT NULL DEFAULT "0", PRIMARY KEY (`Item_ID`), UNIQUE KEY `Item_ID_UNIQUE` (`Item_ID`), UNIQUE KEY `Name_UNIQUE` (`Name`));';
+con.query(sql, function (err, result, fields) {
+  if (err) {console.log(err)} else {console.log(result)};
 });
 
 app.use(bodyParser.json());
