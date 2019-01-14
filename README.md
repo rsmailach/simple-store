@@ -8,7 +8,8 @@ This project is a simple store web-app created with React.js, Node.js and MySQL.
 ## Setup
 1. Install `mysql` and `npm`
 2. Edit `server.js` to match the MySQL credentials you set up.
-3. From the project directory you can run the following
+3. From the project directory, run `npm install` which will install the dependencies needed by the app.
+4. To run the app, you can perform the following:
      * `npm run dev` which will run the app in development mode. Open http://localhost:3000 to view it in the browser.
      * `npm run build` which will build the app in production mode. 
 
